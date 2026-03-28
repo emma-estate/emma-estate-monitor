@@ -36,3 +36,5 @@ if [ "$STATUS" != "$PREV_STATUS" ]; then
         fi
     fi
 fi
+
+echo "{\"status\":\"$STATUS\",\"time\":\"$NOW_HUMAN\"}" > status.json
