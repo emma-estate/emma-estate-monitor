@@ -20,11 +20,13 @@ jobs:
         run: |
           chmod +x monitor.sh
           ./monitor.sh
+          ls -lah
 
       - name: Commit status files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add status.json status.txt down_since.txt || true
+          touch status.json status.txt down_since.txt
+          git add status.json status.txt down_since.txt
           git diff --cached --quiet || git commit -m "Update monitor status"
           git push
